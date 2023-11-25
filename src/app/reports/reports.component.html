@@ -1,1 +1,15 @@
-<p>reports works!</p>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Baddie's Name</th>
+      <th>Time Reported</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr app-reports-row *ngFor="let report of reports" [report]="report"></tr>
+  </tbody>
+</table>

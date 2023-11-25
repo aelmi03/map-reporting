@@ -1,1 +1,14 @@
-<p>reports-row works!</p>
+<td>{{ report.location }}</td>
+<td>{{ report.reportingPerson }}</td>
+<td>
+  {{ report.date | date : "yyyy-MM-dd" }} ({{ report.date | date : "h:mm a" }})
+</td>
+<td>{{ report.status | uppercase }}</td>
+<td id="moreInfo" style="cursor: pointer; text-decoration: underline">
+  MORE INFO
+</td>
+<td>
+  <mat-icon style="background-color: rgb(255, 5, 5); cursor: pointer"
+    >close</mat-icon
+  >
+</td>

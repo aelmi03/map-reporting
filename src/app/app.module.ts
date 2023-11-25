@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { ReportsComponent } from './reports/reports.component';
+import {MatIconModule} from '@angular/material/icon';
 import { ReportsRowComponent } from './reports-row/reports-row.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +16,8 @@ import { ReportsRowComponent } from './reports-row/reports-row.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

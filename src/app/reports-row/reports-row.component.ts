@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import NuisanceReport from '../types/nuisance_report';
 
 @Component({
-  selector: 'app-reports-row',
+  selector: '[app-reports-row]',
   templateUrl: './reports-row.component.html',
   styleUrls: ['./reports-row.component.css']
 })
 export class ReportsRowComponent {
+  @Input() report!: NuisanceReport;
+  constructor(){
 
+  }
 }
