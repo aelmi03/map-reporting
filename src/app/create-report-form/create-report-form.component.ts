@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms';
 import NuisanceReport from '../types/nuisance_report';
 import { Location } from '../types/nuisance_report';
+import { ReportService } from '../report-service';
 @Component({
   selector: 'app-create-report-form',
   templateUrl: './create-report-form.component.html',
@@ -11,7 +12,7 @@ export class CreateReportFormComponent {
   form:FormGroup;
   showLocationModal:boolean
   locations:Location[]
-  constructor(){
+  constructor(private reportService:ReportService){
     
     let formControls = {
       reportingPerson: new FormControl('',[
@@ -45,12 +46,19 @@ export class CreateReportFormComponent {
       { placeName: 'Tokyo', latitude: 35.6895, longitude: 139.6917 }
       // Add more this.locations as needed
     ];
+    this.reportService.reportsObservable.subscribe((reports)=>{
+      console.log("reportsObservable called");
+      this.locations = [...this.locations, ...reports.map(report=>report.location)];
+    });
     this.showLocationModal=false;
     this.form = new FormGroup(formControls);
   }
   onSubmit(value:NuisanceReport){
+    console.log("ONSUBMIT CALLED");
     value.date = new Date();
     value.status = 'OPEN';
+    this.reportService.addReport(value);
+    this.form.reset();
   }
 
   phoneNumberValidator(control:AbstractControl){
@@ -64,7 +72,10 @@ export class CreateReportFormComponent {
     this.showLocationModal=!this.showLocationModal;
   }
   addNewLocation(newLocation:Location){
-    this.locations.push(newLocation);
+    console.log("addNewLocation called");
+    this.locations = [newLocation, ...this.locations];
+    console.log(this.locations);
+    console.log("-------------");
     this.form.controls['location'].setValue(newLocation);
       }
 }

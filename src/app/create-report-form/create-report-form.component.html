@@ -2,7 +2,9 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
   <fieldset>
     <legend>Create Nuisance Report</legend>
-    <button id="add-location" (click)="toggleModal()">Add Location</button>
+    <button id="add-location" (click)="toggleModal()" type="button">
+      Add Location
+    </button>
     <div class="formDataSection">
       <label for="reportingPersonName">Name:</label>
       <input
@@ -11,7 +13,6 @@
         name="reportingPersonName"
         formControlName="reportingPerson"
         placeholder="Name"
-        (click)="onSubmit(form.value)"
       />
       <span></span>
       <p

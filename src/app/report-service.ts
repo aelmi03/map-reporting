@@ -4,19 +4,24 @@ import { Injectable } from '@angular/core';
 import NuisanceReport from './types/nuisance_report';
 import uniqid from 'uniqid';
 
+interface ReportDocument {
+  data:NuisanceReport;
+  key:string;
+}
 @Injectable({
   providedIn: 'root'
 })
-export class ReportServiceService {
+export class ReportService {
   reportsSubject:BehaviorSubject<NuisanceReport[]> = new BehaviorSubject<NuisanceReport[]>([]);
  reportsObservable = this.reportsSubject.asObservable();
   constructor(private httpClient:HttpClient) { 
     this.getReports();
   }
   getReports(){
-    this.httpClient.get<NuisanceReport[]>('https://272.selfip.net/apps/Nt9K3oiyhy/collections/reportsCollection/documents/').subscribe(
-      (data) => {
-        this.reportsSubject.next(data);
+    this.httpClient.get<ReportDocument[]>('https://272.selfip.net/apps/Nt9K3oiyhy/collections/reportsCollection/documents/').subscribe(
+      (document) => {
+        console.log(document);
+        this.reportsSubject.next(document.map((reportDocument)=>reportDocument.data));
       }
     )
   }

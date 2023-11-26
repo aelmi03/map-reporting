@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CreateReportFormComponent } from './create-report-form/create-report-form.component';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReportService } from './report-service';
+import { ReportPipe } from './report.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReportsComponent,
     ReportsRowComponent,
     CreateReportFormComponent,
-    AddLocationComponent
+    AddLocationComponent,
+    ReportPipe
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ReportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
