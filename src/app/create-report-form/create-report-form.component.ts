@@ -10,7 +10,6 @@ import { Location } from '../types/nuisance_report';
 export class CreateReportFormComponent {
   form:FormGroup;
   showLocationModal:boolean
-  selectedLocation:Location
   locations:Location[]
   constructor(){
     
@@ -46,13 +45,10 @@ export class CreateReportFormComponent {
       { placeName: 'Tokyo', latitude: 35.6895, longitude: 139.6917 }
       // Add more this.locations as needed
     ];
-    this.selectedLocation = this.locations[0];
     this.showLocationModal=false;
     this.form = new FormGroup(formControls);
   }
   onSubmit(value:NuisanceReport){
-    console.log(value);
-    console.log(this.form.valid);
     value.date = new Date();
     value.status = 'OPEN';
   }
@@ -65,13 +61,10 @@ export class CreateReportFormComponent {
    return Validators.pattern(/^\d{10}$/)(control);
   }
   toggleModal(){
-    this.showLocationModal=!this.showLocationModal;    
+    this.showLocationModal=!this.showLocationModal;
   }
   addNewLocation(newLocation:Location){
     this.locations.push(newLocation);
-    this.selectedLocation = newLocation;
-  }
-  setCurrentLocation(location:Location){
-    this.selectedLocation = location;
-  }
+    this.form.controls['location'].setValue(newLocation);
+      }
 }
