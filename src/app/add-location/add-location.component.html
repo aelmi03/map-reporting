@@ -40,7 +40,7 @@
                 !form.get('latitude')?.touched || form.get('latitude')?.valid
             }"
           >
-            Latitude is required:
+            Latitude is required (-90 to +90):
           </p>
         </div>
       </div>
@@ -61,13 +61,17 @@
                 !form.get('longitude')?.touched || form.get('longitude')?.valid
             }"
           >
-            Longitude is required:
+            Longitude is required (-180 to +180):
           </p>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
-        Add Location
-      </button>
+
+      <div class="button-container">
+        <button class="btn btn-secondary" (click)="closeModal()">Back</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+          Add Location
+        </button>
+      </div>
     </fieldset>
   </form>
 </div>

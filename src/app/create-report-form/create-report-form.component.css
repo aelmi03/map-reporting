@@ -44,7 +44,27 @@ fieldset {
 }
 
 form {
-  border: 1px solid grey;
+  border: 1px dotted grey;
   padding: 0.5rem;
   border-radius: 5px;
+}
+.button-container {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  gap: 2rem;
+}
+button {
+  width: 100%;
+}
+
+#add-location {
+  text-decoration: underline;
+  color: white;
+  text-align: start;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: inherit;
+  width: fit-content;
+  border: none;
 }

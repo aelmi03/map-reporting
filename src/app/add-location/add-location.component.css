@@ -1,23 +1,27 @@
 .location-data-container {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
 }
 .location-container {
   display: flex;
   flex-flow: column nowrap;
-  gap: 1rem;
+  justify-content: center;
+  width: 100%;
 }
 .warningText {
   color: red;
   font-size: 0.8rem;
+  height: 0;
+  align-self: start;
 }
 
-.add-location-container {
+#add-location-container {
   width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   position: absolute;
-  width: 700px;
-  max-width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -28,11 +32,21 @@ h1,
 label {
   color: white;
 }
-
+legend {
+  margin-bottom: 3rem;
+  text-align: center;
+}
 form {
   border: 1px solid grey;
-  padding: 0.5rem;
+  padding: 1.5rem;
   border-radius: 5px;
+  width: 600px;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(50, 50, 50);
 }
 
 .hidden {
@@ -41,4 +55,27 @@ form {
 
 button {
   width: 100%;
+}
+input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0.4rem;
+  width: 100%;
+}
+
+label {
+  width: 120px;
+}
+
+fieldset {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+
+.button-container {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  gap: 2rem;
 }

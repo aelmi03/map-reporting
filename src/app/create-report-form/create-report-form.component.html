@@ -2,6 +2,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
   <fieldset>
     <legend>Create Nuisance Report</legend>
+    <button id="add-location" (click)="toggleModal()">Add Location</button>
     <div class="formDataSection">
       <label for="reportingPersonName">Name:</label>
       <input
@@ -96,9 +97,16 @@
         placeholder="Extra Info"
       />
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
-      Create Nuisance Report
-    </button>
+    <div class="button-container">
+      <button class="btn btn-secondary">Back</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+        Create Nuisance Report
+      </button>
+    </div>
   </fieldset>
 </form>
-<div app-add-location></div>
+<div
+  *ngIf="showLocationModal"
+  app-add-location
+  (hideModal)="toggleModal()"
+></div>
