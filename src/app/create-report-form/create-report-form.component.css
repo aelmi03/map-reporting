@@ -1,0 +1,50 @@
+.formDataSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 600px;
+  max-width: 100%;
+  color: white;
+  padding: 0.5rem;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+legend,
+h1 {
+  color: white;
+}
+h1 {
+  margin-bottom: 3rem;
+}
+
+legend {
+  font-size: 1rem;
+  text-shadow: 1px 1px 1px white;
+  margin-left: 0.4rem;
+  margin-bottom: 1rem;
+}
+input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0.2rem;
+  height: 30px;
+}
+p.warningText {
+  color: red;
+  justify-self: start;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+}
+
+fieldset {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.hidden {
+  visibility: hidden;
+}
+
+form {
+  border: 1px solid grey;
+  padding: 0.5rem;
+  border-radius: 5px;
+}

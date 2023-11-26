@@ -1,0 +1,73 @@
+<div id="add-location-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <fieldset>
+      <legend>Add New Location</legend>
+      <div class="location-data-container">
+        <label for="name">Place Name:</label>
+        <div class="location-container">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            formControlName="placeName"
+            placeholder="Place Of The Nuisance"
+          />
+          <p
+            class="warningText"
+            [ngClass]="{
+              hidden:
+                !form.get('placeName')?.touched || form.get('placeName')?.valid
+            }"
+          >
+            Name of the place is required
+          </p>
+        </div>
+      </div>
+      <div class="location-data-container">
+        <label for="latitude">Latitude:</label>
+        <div class="location-container">
+          <input
+            type="number"
+            id="latitude"
+            name="latitude"
+            formControlName="latitude"
+            placeholder="Latitude"
+          />
+          <p
+            class="warningText"
+            [ngClass]="{
+              hidden:
+                !form.get('latitude')?.touched || form.get('latitude')?.valid
+            }"
+          >
+            Latitude is required:
+          </p>
+        </div>
+      </div>
+      <div class="location-data-container">
+        <label for="longitude">Longitude:</label>
+        <div class="location-container">
+          <input
+            type="number"
+            id="longitude"
+            name="longitude"
+            formControlName="longitude"
+            placeholder="Longitude"
+          />
+          <p
+            class="warningText"
+            [ngClass]="{
+              hidden:
+                !form.get('longitude')?.touched || form.get('longitude')?.valid
+            }"
+          >
+            Longitude is required:
+          </p>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+        Add Location
+      </button>
+    </fieldset>
+  </form>
+</div>

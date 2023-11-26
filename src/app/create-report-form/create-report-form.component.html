@@ -1,0 +1,104 @@
+<h1>Nuisance Report Form</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <fieldset>
+    <legend>Create Nuisance Report</legend>
+    <div class="formDataSection">
+      <label for="reportingPersonName">Name:</label>
+      <input
+        type="text"
+        id="reportingPersonName"
+        name="reportingPersonName"
+        formControlName="reportingPerson"
+        placeholder="Name"
+        (click)="onSubmit(form.value)"
+      />
+      <span></span>
+      <p
+        class="warningText"
+        [ngClass]="{
+          hidden:
+            !form.get('reportingPerson')?.touched ||
+            form.get('reportingPerson')?.valid
+        }"
+      >
+        Name is required
+      </p>
+    </div>
+
+    <div class="formDataSection">
+      <label for="phoneNumber">Phone Number (Optional):</label>
+      <input
+        type="number"
+        id="phoneNumber"
+        name="phoneNumber"
+        formControlName="phoneNumber"
+        placeholder="Phone Number"
+      />
+      <span></span>
+      <p
+        class="warningText"
+        [ngClass]="{
+          hidden:
+            !form.get('phoneNumber')?.touched || form.get('phoneNumber')?.valid
+        }"
+      >
+        Phone number must have 9 digits
+      </p>
+    </div>
+    <div class="formDataSection">
+      <label for="location">Location:</label>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        formControlName="location"
+        placeholder="Location"
+      />
+    </div>
+    <div class="formDataSection">
+      <label for="pictureLink">Picture Link (Optional):</label>
+      <input
+        type="text"
+        id="pictureLink"
+        name="pictureLink"
+        formControlName="pictureLink"
+        placeholder="Picture Link URL...."
+      />
+    </div>
+    <div class="formDataSection">
+      <label for="troubleMakerInfo">Troublemaker Name:</label>
+      <input
+        type="text"
+        id="troubleMakerInfo"
+        name="troubleMakerInfo"
+        formControlName="troubleMakerInfo"
+        placeholder="Troublemaker Name"
+      />
+      <span></span>
+      <p
+        class="warningText"
+        [ngClass]="{
+          hidden:
+            !form.get('troubleMakerInfo')!.touched ||
+            form.get('troubleMakerInfo')?.valid
+        }"
+      >
+        Troublemaker's name is required
+      </p>
+    </div>
+    <div class="formDataSection">
+      <label for="extraInfo">Extra Info:</label>
+      <input
+        type="text"
+        id="extraInfo"
+        name="extraInfo"
+        formControlName="extraInfo"
+        placeholder="Extra Info"
+      />
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Create Nuisance Report
+    </button>
+  </fieldset>
+</form>
+<div app-add-location></div>

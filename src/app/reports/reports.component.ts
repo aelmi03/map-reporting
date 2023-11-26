@@ -13,11 +13,11 @@ export class ReportsComponent {
       const report: NuisanceReport = {
         reportingPerson: `Person ${i + 1}`,
         troubleMakerInfo: `Trouble info ${i + 1}`,
-        location: `Location ${i + 1}`,
+        location: {latitude:0, longitude:0, placeName:`Location ${i + 1}`},
         pictureLink: `https://example.com/image${i + 1}.jpg`,
         extraInfo: `Extra info ${i + 1}`,
         date: new Date(), // You might adjust this to generate different dates
-        status: `Pending` // Default status
+        status: (i % 2 == 0) ? 'OPEN' : 'RESOLVED' // Default status
       };
   
       this.reports.push(report);
