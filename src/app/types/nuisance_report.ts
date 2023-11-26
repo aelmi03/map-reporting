@@ -12,5 +12,6 @@ export default interface NuisanceReport {
     date: Date;
     status: string;
     phoneNumber?:number;
+    id:string;
 }
 

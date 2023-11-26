@@ -17,7 +17,8 @@ export class ReportsComponent {
         pictureLink: `https://example.com/image${i + 1}.jpg`,
         extraInfo: `Extra info ${i + 1}`,
         date: new Date(), // You might adjust this to generate different dates
-        status: (i % 2 == 0) ? 'OPEN' : 'RESOLVED' // Default status
+        status: (i % 2 == 0) ? 'OPEN' : 'RESOLVED', // Default status
+        id: `id${i + 1}`
       };
   
       this.reports.push(report);

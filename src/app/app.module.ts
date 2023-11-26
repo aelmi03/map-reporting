@@ -10,6 +10,7 @@ import { ReportsRowComponent } from './reports-row/reports-row.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CreateReportFormComponent } from './create-report-form/create-report-form.component';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { AddLocationComponent } from './add-location/add-location.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
