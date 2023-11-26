@@ -53,6 +53,8 @@ export class CreateReportFormComponent {
   onSubmit(value:NuisanceReport){
     console.log(value);
     console.log(this.form.valid);
+    value.date = new Date();
+    value.status = 'OPEN';
   }
 
   phoneNumberValidator(control:AbstractControl){
@@ -63,7 +65,13 @@ export class CreateReportFormComponent {
    return Validators.pattern(/^\d{10}$/)(control);
   }
   toggleModal(){
-        console.log(this.showLocationModal);
     this.showLocationModal=!this.showLocationModal;    
+  }
+  addNewLocation(newLocation:Location){
+    this.locations.push(newLocation);
+    this.selectedLocation = newLocation;
+  }
+  setCurrentLocation(location:Location){
+    this.selectedLocation = location;
   }
 }

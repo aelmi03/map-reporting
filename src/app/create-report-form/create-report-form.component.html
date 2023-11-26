@@ -48,13 +48,15 @@
     </div>
     <div class="formDataSection">
       <label for="location">Location:</label>
-      <input
-        type="text"
-        id="location"
-        name="location"
-        formControlName="location"
-        placeholder="Location"
-      />
+      <select id="location" formControlName="location" [value]="locations[0]">
+        <option value="" disabled selected>Select a location</option>
+        <option *ngFor="let location of locations" [value]="location">
+          {{ location.placeName }} (Latitude:{{
+            location.latitude
+          }}
+          Longitude:{{ location.longitude }})
+        </option>
+      </select>
     </div>
     <div class="formDataSection">
       <label for="pictureLink">Picture Link (Optional):</label>
@@ -108,5 +110,6 @@
 <div
   *ngIf="showLocationModal"
   app-add-location
-  (hideModal)="toggleModal()"
+  (toggleModal)="toggleModal()"
+  (addLocation)="addNewLocation($event)"
 ></div>

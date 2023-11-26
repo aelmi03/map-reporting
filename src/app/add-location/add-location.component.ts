@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
-
+import { Location } from '../types/nuisance_report';
 @Component({
   selector: '[app-add-location]',
   templateUrl: './add-location.component.html',
@@ -9,7 +9,7 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 export class AddLocationComponent {
  form:FormGroup;
  @Output() addLocation = new EventEmitter<Location>();
-@Output() hideModal = new EventEmitter();
+ @Output() toggleModal = new EventEmitter();
  constructor(){
   let formControls = {
     latitude: new FormControl('',[
@@ -31,9 +31,10 @@ export class AddLocationComponent {
  }
 onSubmit(value:Location){
   this.addLocation.emit(value);
+  this.toggleModal.emit();
   this.form.reset();
 }
 closeModal(){
-  this.hideModal.emit();
+  this.toggleModal.emit();
 }
 }
