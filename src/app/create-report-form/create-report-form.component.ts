@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators, AbstractControl} from '@angular/form
 import NuisanceReport from '../types/nuisance_report';
 import { Location } from '../types/nuisance_report';
 import { ReportService } from '../report-service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-report-form',
   templateUrl: './create-report-form.component.html',
@@ -12,7 +13,7 @@ export class CreateReportFormComponent {
   form:FormGroup;
   showLocationModal:boolean
   locations:Location[]
-  constructor(private reportService:ReportService){
+  constructor(private reportService:ReportService, private router:Router){
     
     let formControls = {
       reportingPerson: new FormControl('',[
@@ -59,6 +60,7 @@ export class CreateReportFormComponent {
     value.status = 'OPEN';
     this.reportService.addReport(value);
     this.form.reset();
+    this.router.navigate(['/']);
   }
 
   phoneNumberValidator(control:AbstractControl){

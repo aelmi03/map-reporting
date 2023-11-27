@@ -13,6 +13,7 @@ import { AddLocationComponent } from './add-location/add-location.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReportService } from './report-service';
 import { ReportPipe } from './report.pipe';
+import { MainComponent } from './main/main.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { ReportPipe } from './report.pipe';
     ReportsRowComponent,
     CreateReportFormComponent,
     AddLocationComponent,
-    ReportPipe
+    ReportPipe,
+    MainComponent
   ],
   imports: [
     BrowserModule,
