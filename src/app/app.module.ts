@@ -17,6 +17,7 @@ import { MainComponent } from './main/main.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
 import { PasswordComponent } from './password/password.component';
 import { PhonePipe } from './phone.pipe';
+import { ClickMapComponent } from './click-map/click-map.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { PhonePipe } from './phone.pipe';
     MainComponent,
     MoreInfoComponent,
     PasswordComponent,
-    PhonePipe
+    PhonePipe,
+    ClickMapComponent
   ],
   imports: [
     BrowserModule,

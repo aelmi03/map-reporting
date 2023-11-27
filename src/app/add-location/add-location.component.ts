@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { Location } from '../types/nuisance_report';
+import { LatLong } from '../click-map/click-map.component';
 @Component({
   selector: '[app-add-location]',
   templateUrl: './add-location.component.html',
@@ -36,5 +37,11 @@ onSubmit(value:Location){
 }
 closeModal(){
   this.toggleModal.emit();
+}
+updateLocation(location : LatLong){
+  this.form.patchValue({
+    latitude:location.latitude,
+    longitude:location.longitude
+  })
 }
 }

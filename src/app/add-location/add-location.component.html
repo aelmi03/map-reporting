@@ -65,7 +65,9 @@
           </p>
         </div>
       </div>
-
+      <app-click-map
+        (locationSelected)="updateLocation($event)"
+      ></app-click-map>
       <div class="button-container">
         <button class="btn btn-secondary" (click)="closeModal()">Back</button>
         <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
