@@ -10,6 +10,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr app-reports-row *ngFor="let report of reports" [report]="report"></tr>
+    <tr
+      app-reports-row
+      *ngFor="let report of reports"
+      [report]="report"
+      (showReport)="showMoreInfo($event)"
+    ></tr>
   </tbody>
 </table>
+<app-more-info
+  *ngIf="selectedReport != null"
+  [report]="selectedReport"
+  (closeModal)="closeMoreInfo()"
+></app-more-info>

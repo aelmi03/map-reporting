@@ -4,7 +4,11 @@
   {{ report.date | date : "yyyy-MM-dd" }} ({{ report.date | date : "h:mm a" }})
 </td>
 <td>{{ report.status | uppercase }}</td>
-<td id="moreInfo" style="cursor: pointer; text-decoration: underline">
+<td
+  id="moreInfo"
+  style="cursor: pointer; text-decoration: underline"
+  (click)="showMoreInfo()"
+>
   MORE INFO
 </td>
 <td>

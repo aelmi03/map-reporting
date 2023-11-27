@@ -1,0 +1,33 @@
+<div id="opacity-container">
+  <div id="more-info-container">
+    <h3>MORE INFO</h3>
+    <div class="row-container">
+      <span>Baddie's Name:</span>
+      <p>{{ report.reportingPerson }}</p>
+    </div>
+    <div class="row-container">
+      <span>Location:</span>
+      <p>{{ report.location.placeName }}</p>
+    </div>
+    <div class="row-container">
+      <span>Time:</span>
+      <p>
+        {{ report.date | date : "yyyy-MM-dd" }} ({{
+          report.date | date : "h:mm a"
+        }})
+      </p>
+    </div>
+    <div class="row-container">
+      <span>Status: </span>
+      <p>
+        {{ report.status }}
+        <a>CHANGE</a>
+      </p>
+    </div>
+    <div class="column-container">
+      <span>Extra Info:</span>
+      <p>{{ report.extraInfo }}</p>
+    </div>
+    <button (click)="close()" class="btn btn-secondary">BACK</button>
+  </div>
+</div>

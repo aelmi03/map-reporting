@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReportService } from './report-service';
 import { ReportPipe } from './report.pipe';
 import { MainComponent } from './main/main.component';
+import { MoreInfoComponent } from './more-info/more-info.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { MainComponent } from './main/main.component';
     CreateReportFormComponent,
     AddLocationComponent,
     ReportPipe,
-    MainComponent
+    MainComponent,
+    MoreInfoComponent
   ],
   imports: [
     BrowserModule,

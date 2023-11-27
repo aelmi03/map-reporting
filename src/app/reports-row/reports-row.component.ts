@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import NuisanceReport from '../types/nuisance_report';
 
 @Component({
@@ -8,7 +8,11 @@ import NuisanceReport from '../types/nuisance_report';
 })
 export class ReportsRowComponent {
   @Input() report!: NuisanceReport;
+  @Output() showReport: EventEmitter<NuisanceReport> = new EventEmitter();
   constructor(){
 
+  }
+  showMoreInfo(){
+    this.showReport.emit(this.report);
   }
 }
