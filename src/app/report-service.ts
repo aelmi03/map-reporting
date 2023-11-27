@@ -46,4 +46,16 @@ export class ReportService {
 
     })
   }
+  updateReport(report:NuisanceReport){
+    const objectToSend = {
+      "data": report,
+      key:report.id
+    }
+    this.httpClient.put<NuisanceReport>(`https://272.selfip.net/apps/Nt9K3oiyhy/collections/reportsCollection/documents/${report.id}`, objectToSend).subscribe((value) => {
+      this.getReports();
+    }, (error) => {
+      console.log("error fetching reports after updating " + error );
+
+    })
+  }
 }

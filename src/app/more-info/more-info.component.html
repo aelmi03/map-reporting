@@ -21,7 +21,7 @@
       <span>Status: </span>
       <p>
         {{ report.status }}
-        <a>CHANGE</a>
+        <a (click)="togglePasswordModal()">CHANGE</a>
       </p>
     </div>
     <div class="column-container">
@@ -31,3 +31,7 @@
     <button (click)="close()" class="btn btn-secondary">BACK</button>
   </div>
 </div>
+<app-password
+  *ngIf="showPassWordModal"
+  (result)="handleResult($event)"
+></app-password>

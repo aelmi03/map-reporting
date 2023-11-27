@@ -15,6 +15,7 @@ import { ReportService } from './report-service';
 import { ReportPipe } from './report.pipe';
 import { MainComponent } from './main/main.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
+import { PasswordComponent } from './password/password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { MoreInfoComponent } from './more-info/more-info.component';
     AddLocationComponent,
     ReportPipe,
     MainComponent,
-    MoreInfoComponent
+    MoreInfoComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
