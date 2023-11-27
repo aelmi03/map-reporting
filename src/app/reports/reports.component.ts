@@ -9,8 +9,11 @@ import { ReportService } from '../report-service';
 export class ReportsComponent {
   reports: NuisanceReport[];
   selectedReport:NuisanceReport;
+  showPassWordModal:boolean = false;
+  reportToDelete:NuisanceReport;
   constructor(private reportService:ReportService) {
     this.reports = [];
+    this.reportToDelete = (null as any) as NuisanceReport;
     this.selectedReport = (null as any) as NuisanceReport;
     this.reportService.reportsObservable.subscribe((allReports)=>{
       this.reports = allReports;
@@ -37,5 +40,21 @@ export class ReportsComponent {
   showMoreInfo(report:NuisanceReport){
     this.selectedReport = report;
     console.log("WE MADE IT");
+  }
+  togglePasswordModal(){
+    this.showPassWordModal = !this.showPassWordModal;
+  }
+ handleDeleteClick(report:NuisanceReport){
+  this.reportToDelete = report;
+  this.togglePasswordModal();
+ }
+  handleResult(result:boolean){
+    if(result){
+      this.reportService.deleteReport(this.reportToDelete);
+      this.togglePasswordModal();
+    }
+    else{
+      this.togglePasswordModal()
+    }
   }
 }

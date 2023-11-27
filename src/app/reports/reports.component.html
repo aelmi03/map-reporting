@@ -15,6 +15,7 @@
       *ngFor="let report of reports"
       [report]="report"
       (showReport)="showMoreInfo($event)"
+      (deleteReport)="handleDeleteClick($event)"
     ></tr>
   </tbody>
 </table>
@@ -23,3 +24,7 @@
   [report]="selectedReport"
   (closeModal)="closeMoreInfo()"
 ></app-more-info>
+<app-password
+  *ngIf="showPassWordModal"
+  (result)="handleResult($event)"
+></app-password>

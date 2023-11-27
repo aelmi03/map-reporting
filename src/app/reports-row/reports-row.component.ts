@@ -9,10 +9,15 @@ import NuisanceReport from '../types/nuisance_report';
 export class ReportsRowComponent {
   @Input() report!: NuisanceReport;
   @Output() showReport: EventEmitter<NuisanceReport> = new EventEmitter();
+  @Output() deleteReport: EventEmitter<NuisanceReport> = new EventEmitter();
+
   constructor(){
 
   }
   showMoreInfo(){
     this.showReport.emit(this.report);
+  }
+  delete(){
+    this.deleteReport.emit(this.report);
   }
 }
