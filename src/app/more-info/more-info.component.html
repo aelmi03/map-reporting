@@ -1,13 +1,22 @@
 <div id="opacity-container">
   <div id="more-info-container">
     <h3>MORE INFO</h3>
+    <img [src]="report.pictureLink" alt="Report Image" />
+
     <div class="row-container">
       <span>Baddie's Name:</span>
-      <p>{{ report.reportingPerson }}</p>
+      <p>{{ report.troubleMakerInfo }}</p>
     </div>
     <div class="row-container">
       <span>Location:</span>
       <p>{{ report.location.placeName }}</p>
+    </div>
+    <div class="row-container">
+      <span>Reported by:</span>
+      <p>
+        {{ report.reportingPerson }}
+        {{ report.phoneNumber ? "(" + (report.phoneNumber | phone) + ")" : "" }}
+      </p>
     </div>
     <div class="row-container">
       <span>Time:</span>

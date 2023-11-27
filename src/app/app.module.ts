@@ -16,6 +16,7 @@ import { ReportPipe } from './report.pipe';
 import { MainComponent } from './main/main.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
 import { PasswordComponent } from './password/password.component';
+import { PhonePipe } from './phone.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { PasswordComponent } from './password/password.component';
     ReportPipe,
     MainComponent,
     MoreInfoComponent,
-    PasswordComponent
+    PasswordComponent,
+    PhonePipe
   ],
   imports: [
     BrowserModule,
