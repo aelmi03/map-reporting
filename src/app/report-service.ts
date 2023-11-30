@@ -21,7 +21,13 @@ export class ReportService {
     this.httpClient.get<ReportDocument[]>('https://272.selfip.net/apps/Nt9K3oiyhy/collections/reportsCollection/documents/').subscribe(
       (document) => {
         console.log(document);
-        this.reportsSubject.next(document.map((reportDocument)=>reportDocument.data));
+        const newData : NuisanceReport[] = document.map((reportDocument)=>{
+          const data : NuisanceReport = reportDocument.data
+          data.date = new Date(data.date);
+          return data;
+        });
+        this.reportsSubject.next(newData);
+
       }
     )
   }

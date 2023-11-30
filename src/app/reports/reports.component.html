@@ -1,3 +1,27 @@
+<div class="button-container">
+  <p>Sort By:</p>
+  <button
+    class="btn btn-secondary"
+    (click)="sortByLocation()"
+    [ngClass]="{ selected: sortedMetric === 'location' }"
+  >
+    Location
+  </button>
+  <button
+    class="btn btn-secondary"
+    (click)="sortByBaddieName()"
+    [ngClass]="{ selected: sortedMetric === 'baddieName' }"
+  >
+    Baddie's Name
+  </button>
+  <button
+    class="btn btn-secondary"
+    (click)="sortByDate()"
+    [ngClass]="{ selected: sortedMetric === 'date' }"
+  >
+    Time Reported
+  </button>
+</div>
 <table class="table table-striped table-dark">
   <thead>
     <tr>

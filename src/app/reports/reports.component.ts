@@ -11,13 +11,22 @@ export class ReportsComponent {
   selectedReport:NuisanceReport;
   showPassWordModal:boolean = false;
   reportToDelete:NuisanceReport;
+  sortedMetric:string = "";
   constructor(private reportService:ReportService) {
     this.reports = [];
     this.reportToDelete = (null as any) as NuisanceReport;
     this.selectedReport = (null as any) as NuisanceReport;
     this.reportService.reportsObservable.subscribe((allReports)=>{
       this.reports = allReports;
-
+      if(this.sortedMetric === "location"){
+        this.sortByLocation();
+      }
+      else if (this.sortedMetric === "baddieName"){
+        this.sortByBaddieName();
+      }
+      else{
+        this.sortByDate();
+      }
     })
     // for (let i = 0; i < 5; i++) {
     //   const report: NuisanceReport = {
@@ -33,6 +42,24 @@ export class ReportsComponent {
   
     //   this.reports.push(report);
     // }
+  }
+  sortByLocation() {
+    this.reports.sort((a, b) => {
+     return a.location.placeName.localeCompare(b.location.placeName);
+    });
+    this.sortedMetric="location"
+  }
+  sortByBaddieName() {
+    this.reports.sort((a, b) => {
+     return a.troubleMakerInfo.localeCompare(b.troubleMakerInfo);
+    });
+    this.sortedMetric="baddieName"
+  }
+  sortByDate() {
+    this.reports.sort((a, b) => {
+     return a.date.getTime() - b.date.getTime();
+    });
+    this.sortedMetric="date"
   }
   closeMoreInfo(){
     this.selectedReport = (null as any) as NuisanceReport;

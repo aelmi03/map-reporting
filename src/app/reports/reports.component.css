@@ -2,3 +2,31 @@ table {
   width: 1000px;
   max-width: 100%;
 }
+
+.button-container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1.7rem;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+}
+
+.button-container > button {
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  width: 150px;
+}
+
+.button-container > p {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+  top: 8px;
+  align-self: baseline;
+}
+
+.selected {
+  background-color: black;
+}
